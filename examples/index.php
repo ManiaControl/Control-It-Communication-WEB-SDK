@@ -1,6 +1,7 @@
 <?php
 // Include ManiaControl Control-It
 use ManiaControlCommunicationSDK\Connection;
+use ManiaControlCommunicationSDK\Enums\AuthLevels;
 use ManiaControlCommunicationSDK\Enums\MessageTypes;
 use ManiaControlCommunicationSDK\Exceptions\CallException;
 use ManiaControlCommunicationSDK\Exceptions\ConnectException;
@@ -23,6 +24,7 @@ try {
 
 //TODO MC-Info Method
 
+
 //Example 1: Send a Chat Message
 try {
 	$communicationController->sendChatMessage("Example Message 1", '$f0f', MessageTypes::TYPE_ERROR);
@@ -40,9 +42,36 @@ try {
 	var_dump($e->getMessage());
 }
 
-//Example 3: Restarting ManiaControl
+//Example 3: Grand Auth Level
+try {
+	echo "<pre>";
+	print_r($communicationController->grandAuthLevel("loginxyz", AuthLevels::AUTH_LEVEL_SUPERADMIN));
+	echo "</pre>";
+} catch(CallException $e) {
+	var_dump($e->getMessage());
+}
+
+//Example 4: Revoke Auth Level
+try {
+	echo "<pre>";
+	print_r($communicationController->revokeAuthLevel("loginxyz"));
+	echo "</pre>";
+} catch(CallException $e) {
+	var_dump($e->getMessage());
+}
+
+//Example 5: Updating ManiaControl
+try {
+	//print_r($communicationController->updateManiaControlCore());
+} catch(CallException $e) {
+	var_dump($e->getMessage());
+}
+
+
+//Example 6: Restarting ManiaControl
 try {
 	//print_r($communicationController->restartManiaControl());
 } catch(CallException $e) {
 	var_dump($e->getMessage());
 }
+

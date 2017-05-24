@@ -89,6 +89,45 @@ class Connection {
 		return $responseData->data;
 	}
 
+	/**
+	 * Restarts ManiaControl
+	 *
+	 * @param string $message
+	 * @return object
+	 */
+	public function restartManiaControl($message = "") {
+		return $this->call(CommunicationMethods::RESTART_MANIA_CONTROL, array("message" => $message));
+	}
+
+	/**
+	 * Perform Core update
+	 *
+	 * @return object
+	 */
+	public function updateManiaControlCore() {
+		return $this->call(CommunicationMethods::RESTART_MANIA_CONTROL);
+	}
+
+	/**
+	 * Grands an Authentication Level on a Player
+	 *
+	 * @param string $login (login of the player)
+	 * @param int    $level (integer, 0-3 possible, @see AuthLevels)
+	 * @return object
+	 */
+	public function grandAuthLevel($login, $level) {
+		return $this->call(CommunicationMethods::GRANT_AUTH_LEVEL, array("login" => $login, "level" => $level));
+	}
+
+	/**
+	 * Revokes an Authentication Level on a Player
+	 *
+	 * @param $login (login of the player)
+	 * @return object
+	 */
+	public function revokeAuthLevel($login) {
+		return $this->call(CommunicationMethods::REVOKE_AUTH_LEVEL, array("login" => $login));
+	}
 
 	/**
 	 * Gets the Server Chat
@@ -113,15 +152,5 @@ class Connection {
 	 */
 	public function sendChatMessage($message, $prefix = false, $type = MessageTypes::TYPE_DEFAULT, $receiverLogin = null, $adminLevel = null) {
 		return $this->call(CommunicationMethods::SEND_CHAT_MESSAGE, array("message" => $message, 'prefix' => $prefix, "login" => $receiverLogin, "adminLevel" => $adminLevel, "type" => $type));
-	}
-
-	/**
-	 * Restarts ManiaControl
-	 *
-	 * @param string $message
-	 * @return object
-	 */
-	public function restartManiaControl($message = "") {
-		return $this->call(CommunicationMethods::RESTART_MANIA_CONTROL, array("message" => $message));
 	}
 }
