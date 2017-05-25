@@ -20,7 +20,7 @@ class Connection {
 	private $socket;
 	private $connectionPassword;
 
-	const SOCKET_TIMEOUT = 2;
+	const SOCKET_TIMEOUT = 30;
 	const ENCRYPTION_IV = "kZ2Kt0CzKUjN2MJX";
 	const ENCRYPTION_METHOD = "aes-192-cbc";
 

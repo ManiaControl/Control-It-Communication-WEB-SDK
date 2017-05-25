@@ -2,6 +2,7 @@
 // Include ManiaControl Control-It
 use ManiaControlCommunicationSDK\Connection;
 use ManiaControlCommunicationSDK\Enums\AuthLevels;
+use ManiaControlCommunicationSDK\Enums\CommunicationMethods;
 use ManiaControlCommunicationSDK\Enums\MessageTypes;
 use ManiaControlCommunicationSDK\Exceptions\CallException;
 use ManiaControlCommunicationSDK\Exceptions\ConnectException;
@@ -15,6 +16,7 @@ $port           = "";
 //Connection Pass which is set in Communcation Manager Settings of ManiaControl
 $connectionPass = "";
 
+//Create the Connection (it will closed automatically via its destructor)
 try {
 	$communicationController = new Connection($host, $port, $connectionPass);
 } catch(ConnectException $e) {
@@ -24,10 +26,16 @@ try {
 
 //TODO MC-Info Method
 
-
-//Example 1: Send a Chat Message
+//Example 1a: Send a Chat Message
 try {
 	$communicationController->sendChatMessage("Example Message 1", '$f0f', MessageTypes::TYPE_ERROR);
+} catch(CallException $e) {
+	var_dump($e->getMessage());
+}
+
+//Example 1b: Plain Call (You can use this way for calling own defined Communication Messages)
+try {
+	$communicationController->call(CommunicationMethods::SEND_CHAT_MESSAGE, array("message" => "Im a Test Message", "type" => MessageTypes::TYPE_SUCCESS));
 } catch(CallException $e) {
 	var_dump($e->getMessage());
 }
@@ -74,4 +82,3 @@ try {
 } catch(CallException $e) {
 	var_dump($e->getMessage());
 }
-
