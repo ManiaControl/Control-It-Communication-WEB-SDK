@@ -68,15 +68,50 @@ try {
 	var_dump($e->getMessage());
 }
 
-//Example 5: Updating ManiaControl
+//Example 5: Set Server Options
+try{
+	echo "<pre>";
+	print_r($communicationController->setServerOptions(array("comment" => "I am the Server Comment")));
+	echo "</pre>";
+} catch(CallException $e){
+	var_dump($e->getMessage());
+}
+
+//Example 6: Get Server Options
+try{
+	echo "<pre>";
+	print_r($communicationController->getServerOptions());
+	echo "</pre>";
+} catch(CallException $e){
+	var_dump($e->getMessage());
+}
+
+//Example 7: Set Server Options
+try{
+	echo "<pre>";
+	print_r($communicationController->setScriptSettings(array("S_TimeLimit" => 520)));
+	echo "</pre>";
+} catch(CallException $e){
+	var_dump($e->getMessage());
+}
+
+//Example 8: Get Server Options
+try{
+	echo "<pre>";
+	print_r($communicationController->getScriptSettings());
+	echo "</pre>";
+} catch(CallException $e){
+	var_dump($e->getMessage());
+}
+
+//Example 9: Updating ManiaControl
 try {
 	//print_r($communicationController->updateManiaControlCore());
 } catch(CallException $e) {
 	var_dump($e->getMessage());
 }
 
-
-//Example 6: Restarting ManiaControl
+//Example 10: Restarting ManiaControl
 try {
 	//print_r($communicationController->restartManiaControl());
 } catch(CallException $e) {

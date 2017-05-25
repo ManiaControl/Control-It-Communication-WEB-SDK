@@ -2,9 +2,8 @@
 /**
  * Control It - Your Control Framework for ManiaControl
  *
- * @author    MC-Team
  * @version   0.0.1-beta
- * @link
+ * @author    ManiaControl Team <mail@maniacontrol.com>
  * @copyright ManiaControl Control-It Copyright © 2017 MC-Team
  * @license   http://www.gnu.org/licenses/ GNU General Public License, Version 3
  */

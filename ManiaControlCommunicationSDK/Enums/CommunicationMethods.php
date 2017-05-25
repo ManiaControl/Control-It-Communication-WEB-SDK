@@ -6,7 +6,7 @@ namespace ManiaControlCommunicationSDK\Enums;
  * Communication Methods Interface
  *
  * @author    ManiaControl Team <mail@maniacontrol.com>
- * @copyright 2017 ManiaControl Team
+ * @copyright 2014-2017 ManiaControl Team
  * @license   http://www.gnu.org/licenses/ GNU General Public License, Version 3
  */
 interface CommunicationMethods {
@@ -18,7 +18,7 @@ interface CommunicationMethods {
 
 	/** Update the ManiaControl Core */
 	const UPDATE_MANIA_CONTROL_CORE = "UpdateManager.CoreUpdate";
-	
+
 	/** Grands an Authentication Level on a Player
 	 *   Required Parameters
 	 *      - login (login of the player)
@@ -39,7 +39,7 @@ interface CommunicationMethods {
 
 	/** Set Server Options
 	 *   Required Parameter
-	 *    - scriptSettings (array(optionName1 => value1, optionName2 => value2...))
+	 *    - serverOptions (array(optionName1 => value1, optionName2 => value2...))
 	 */
 	const SET_SERVER_OPTIONS = "ServerOptions.SetServerOptions";
 
@@ -96,15 +96,15 @@ interface CommunicationMethods {
 	const UPDATE_MAP = "MapManager.UpdateMap";
 
 	/** Gets the current Map
-	 *  Required Parameters
-	 *   - mxId (integer)
-	 *   OR
-	 *   - mapUid (string)
+	 *  no Parameters
 	 */
 	const GET_CURRENT_MAP = "MapManager.GetCurrentMap";
 
 	/** Gets the specific Map
-	 *  no Parameters
+	 *  Required Parameters
+	 *   - mxId (integer)
+	 *   OR
+	 *   - mapUid (string)
 	 */
 	const GET_MAP = "MapManager.GetMap";
 
