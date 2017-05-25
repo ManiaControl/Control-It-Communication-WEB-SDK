@@ -3,7 +3,7 @@
 namespace ManiaControlCommunicationSDK\Enums;
 
 /**
- * Communication Methods Interface
+ * Message Types Enumeration Interface
  *
  * @author    ManiaControl Team <mail@maniacontrol.com>
  * @copyright 2017 ManiaControl Team
